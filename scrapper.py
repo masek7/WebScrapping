@@ -44,7 +44,7 @@ def captura_preco():
         preco_produto = soup.find_all('b', {'class': 'regularPrice'})
         for price in preco_produto:
             price = price.text
-            new_price = price.replace("R$", "").replace(",", ".")
+            new_price = price.replace("R$", "").replace(".", "").replace(",", ".")
 
             return float(new_price)
 
