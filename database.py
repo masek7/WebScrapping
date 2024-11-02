@@ -50,7 +50,8 @@ def notify():
     notify_high = Notification(app_id="Monitorador de Preço",
                                title="O PREÇO DO PRODUTO SUBIU",
                                msg=f'O preço atual é:{last_price} reais',
-                               duration="short")
+                               duration="short",
+                               icon="icons/preco_subiu.ico")
     notify_high.set_audio(audio.Reminder, loop=False)
     notify_high.add_actions(label="Link para o produto",
                             launch=armazena_link())
@@ -62,7 +63,8 @@ def notify():
     notify_low = Notification(app_id="Monitorador de Preço",
                                title="O PREÇO DO PRODUTO CAIU",
                                msg=f'O preço atual é:{last_price} reais',
-                               duration="short")
+                               duration="short",
+                              icon="icons/preco_caiu.ico")
     notify_low.set_audio(audio.Reminder, loop=False)
     notify_low.add_actions(label="Link para o produto",
                             launch=armazena_link())
@@ -74,7 +76,8 @@ def notify():
     notify_atl = Notification(app_id="Monitorador de Preço",
                               title="O PREÇO DO PRODUTO CAIU",
                               msg=f'O preço atual é:{last_price} reais',
-                              duration="short")
+                              duration="short",
+                              icon="icons/menor_valor.ico")
     notify_atl.set_audio(audio.Reminder, loop=False)
     notify_atl.add_actions(label="Link para o produto",
                            launch=armazena_link())

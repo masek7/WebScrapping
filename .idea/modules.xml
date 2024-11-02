@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Novo_Observador.iml" filepath="$PROJECT_DIR$/.idea/Novo_Observador.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Monitorador_precos.iml" filepath="$PROJECT_DIR$/.idea/Monitorador_precos.iml" />
     </modules>
   </component>
 </project>
