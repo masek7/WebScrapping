@@ -21,7 +21,7 @@ def anota_preco():
         df = pd.read_csv(arquivo)
     else:
         #Cria as colunas do dataframe
-        df = pd.DataFrame(columns=['ID','Preco', 'Data'])
+        df = pd.DataFrame(columns=['ID','Preco','Variacao', 'Data'])
 
     #Guarda o preço e o ID do produto, na variável preco_novo, para que toda vez que o script seja rodado, ele seja atualizado
     preco_novo = captura_preco()
@@ -29,6 +29,10 @@ def anota_preco():
 
     #adiciona o preço e a data ao dataframe criado, e o salva.
     df=df._append({'ID':id_novo,'Preco':preco_novo,'Data':data_formatada}, ignore_index = True)
+    # calcula a variação do preço
+    df['Variacao'] = df['Preco'].pct_change() * 100
+    # substitui o valor NaN por um 0.
+    df['Variacao'] = df['Variacao'].fillna(0)
     df.to_csv(arquivo, index=False)
     print(df)
 
@@ -77,6 +81,11 @@ def notify():
 
     if last_price > atl_price:
         notify_low.show()
+
+
+
+
+
 
 
 anota_preco()
