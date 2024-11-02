@@ -6,7 +6,7 @@ import os
 
 def armazena_link():
 
-    caminho = r'C:\Users\GuiMo\Downloads\monitoramento'
+    caminho = r'D:\Python\Novo_Observador\monitoramento'
     arquivo = caminho + r'\link_monitoramento.txt'
 
     #Verifica se arquivo da planilha já existe, se ele não existir, o cria na pasta que também é verificada e criada se não existir.
@@ -35,7 +35,14 @@ html = response.text
 soup = BeautifulSoup(html, 'html.parser')
 
 
-#Loop que recolhe o valor do produto, sem os descontos.
+def captura_id():
+    if "kabum.com.br" in armazena_link():
+        codigo_produto = soup.find_all('span', {'class':'sc-16f86c3f-4 hezezy'})
+        for id in codigo_produto:
+            id = id.text
+            new_id = id.replace("Código:","")
+            return int(new_id)
+
 
 def captura_preco():
 
@@ -54,5 +61,5 @@ def captura_preco():
             price = price.text
             return float(price)
 
-
+captura_id()
 captura_preco()
